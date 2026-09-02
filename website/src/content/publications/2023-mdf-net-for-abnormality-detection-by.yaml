@@ -1,8 +1,8 @@
 title: "MDF-Net for Abnormality Detection by Fusing X-Rays with Clinical Data"
 authors: "Chihcheng Hsieh, Isabel Blanco Nobre, Sandra Costa Sousa, Chun Ouyang, Margot Brereton, Jacinto C. Nascimento, Joaquim Jorge, Catarina Moreira"
-venue: "CoRR abs/2302.13390 (2023)"
+venue: "Scientific Reports, 13, 15873, 2023"
 year: 2023
-type: preprint
+type: journal
 arxiv: "https://arxiv.org/abs/2302.13390"
 code: "https://github.com/ChihchengHsieh/multimodal-abnormalities-detection"
 abstract: "This study investigates the effects of including patients' clinical information on the performance of deep learning (DL) classifiers for disease location in chest X-ray images. Although current classifiers achieve high performance using chest X-ray images alone, our interviews with radiologists indicate that clinical data is highly informative and essential for interpreting images and making proper diagnoses. In this work, we propose a novel architecture consisting of two fusion methods that enable the model to simultaneously process patients' clinical data (structured data) and chest X-rays (image data). Since these data modalities are in different dimensional spaces, we propose a spatial arrangement strategy, spatialization, to facilitate the multimodal learning process in a Mask R-CNN model. We performed an extensive experimental evaluation using MIMIC-Eye, a dataset comprising modalities: MIMIC-CXR (chest X-ray images), MIMIC IV-ED (patients' clinical data), and REFLACX (annotations of disease locations in chest X-rays). Results show that incorporating patients' clinical data in a DL model together with the proposed fusion methods improves the disease localization in chest X-rays by 12% in terms of Average Precision compared to a standard Mask R-CNN using only chest X-rays. Further ablation studies also emphasize the importance of multimodal DL architectures and the incorporation of patients' clinical data in disease localization. The architecture proposed in this work is publicly available to promote the scientific reproducibility of our study (this https URL)."
