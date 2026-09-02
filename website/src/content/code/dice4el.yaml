@@ -1,0 +1,6 @@
+title: "DiCE4EL"
+description: "Milestone-aware counterfactual explanations for predictive process analytics - an extension of DiCE to event logs."
+repo: "https://github.com/ChihchengHsieh/EventLogDiCE"
+paper: "https://doi.org/10.1109/ICPM53251.2021.9576881"
+tags: ["XAI","Counterfactuals","Process analytics"]
+order: 4

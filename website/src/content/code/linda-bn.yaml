@@ -1,0 +1,5 @@
+title: "LINDA-BN"
+description: "Interpretable probabilistic approach for demystifying black-box predictive models using Bayesian networks. Companion code for the Decision Support Systems 2021 paper."
+repo: "https://github.com/catarina-moreira/LINDA_DSS"
+tags: ["XAI","Bayesian networks"]
+order: 1

@@ -6,7 +6,7 @@ order: 5
 ---
 
 This theme develops the lab's core computer vision and multimodal capability: adapting
-foundation models — CLIP, DINO, vision-language models, diffusion models — to real-world
+foundation models - CLIP, DINO, vision-language models, diffusion models - to real-world
 visual understanding problems outside medicine. (Vision and multimodal work that serves
 healthcare lives in the [AI for Health & Medicine](/research/ai-for-health/) theme; the
 boundary between the two is the application domain, not the method.)
@@ -33,6 +33,6 @@ detection).
 
 On the media side we develop lightweight video super-resolution for highly compressed
 video, dynamic neural radiance fields, prompt-guided diffusion for image enhancement and
-editing, and multimodal fusion approaches for sentiment and content understanding —
+editing, and multimodal fusion approaches for sentiment and content understanding -
 capabilities that also feed the lab's [Deepfakes & Media Authenticity](/research/deepfakes/)
 theme.

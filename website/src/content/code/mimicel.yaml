@@ -1,0 +1,6 @@
+title: "MIMICEL"
+description: "Event log extraction pipeline for the MIMIC-IV Emergency Department dataset, enabling process analytics on patient journeys."
+repo: "https://github.com/ZhipengHe/MIMIC-IV-event-log-extraction-for-ED"
+paper: "https://doi.org/10.13026/64aq-jw11"
+tags: ["Process analytics","Healthcare","Dataset"]
+order: 3

@@ -1,0 +1,5 @@
+title: "XAI Fidelity & Stability Evaluation"
+description: "Evaluation frameworks for the fidelity and stability of post-hoc explanation methods (LIME, SHAP) in predictive process analytics."
+repo: "https://github.com/Mythreyi-V/three-phase-fidelity-evaluation"
+tags: ["XAI","Evaluation"]
+order: 5

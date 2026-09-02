@@ -1,0 +1,6 @@
+title: "MIMIC-Eye"
+description: "Integrating MIMIC datasets with REFLACX and eye gaze for multimodal deep learning in medical imaging, plus the MDF-Net abnormality-detection models."
+repo: "https://github.com/ChihchengHsieh/multimodal-abnormalities-detection"
+paper: "https://doi.org/10.13026/pc72-as03"
+tags: ["Medical imaging","Eye tracking","Dataset"]
+order: 2

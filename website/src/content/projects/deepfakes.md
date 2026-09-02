@@ -7,13 +7,13 @@ order: 4
 
 Generative AI can now produce images, video, audio and text that are increasingly
 difficult to distinguish from authentic media. Deepfakes pose serious risks to public
-trust, democratic processes, personal reputation and the integrity of evidence — while
+trust, democratic processes, personal reputation and the integrity of evidence - while
 detection systems themselves are often opaque "black boxes" whose verdicts people are
 simply asked to accept.
 
 This research theme, supported by recently funded work at the XAMI Lab, studies deepfakes
 end to end: how manipulated media is generated, how it can be detected robustly across
-domains and modalities, and — in line with the lab's mission — how detection decisions can
+domains and modalities, and - in line with the lab's mission - how detection decisions can
 be made explainable and trustworthy for the journalists, platforms, courts and citizens
 who must act on them. Topics in this theme include:
 

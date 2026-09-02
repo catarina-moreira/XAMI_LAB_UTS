@@ -68,6 +68,19 @@ const videos = defineCollection({
   }),
 });
 
+// One YAML file per code/software project shown on the Projects page.
+const code = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/code' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    repo: z.string(),
+    paper: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    order: z.number().default(99),
+  }),
+});
+
 // One markdown file per tutorial.
 const tutorials = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/tutorials' }),
@@ -79,4 +92,4 @@ const tutorials = defineCollection({
   }),
 });
 
-export const collections = { people, publications, projects, videos, tutorials };
+export const collections = { people, publications, projects, videos, tutorials, code };

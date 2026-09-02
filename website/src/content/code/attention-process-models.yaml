@@ -1,0 +1,6 @@
+title: "Interpretable Attention Process Models"
+description: "Shared and specialised attention mechanisms for building interpretable business process prediction models."
+repo: "https://github.com/ZhipengHe/Shared-and-Specialised-Attention-based-Interpretable-Models"
+paper: "https://doi.org/10.1016/j.knosys.2022.108773"
+tags: ["Deep learning","Process analytics"]
+order: 6
