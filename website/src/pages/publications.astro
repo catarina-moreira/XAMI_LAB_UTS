@@ -28,11 +28,17 @@ const linkFor = (p: (typeof pubs)[number]['data']) =>
     <h1>Publications</h1>
 
     <div class="filters" role="group" aria-label="Filter publications by type">
-      <button class="chip filter active" data-type="all">All</button>
-      <button class="chip filter" data-type="journal"><span class="dot journal"></span>Journal</button>
-      <button class="chip filter" data-type="conference"><span class="dot conference"></span>Conference</button>
-      <button class="chip filter" data-type="preprint"><span class="dot preprint"></span>Preprint</button>
-      <button class="chip filter" data-type="dataset"><span class="dot dataset"></span>Dataset</button>
+      <button class="chip filter type-filter active" data-type="all">All types</button>
+      <button class="chip filter type-filter" data-type="journal"><span class="dot journal"></span>Journal</button>
+      <button class="chip filter type-filter" data-type="conference"><span class="dot conference"></span>Conference</button>
+      <button class="chip filter type-filter" data-type="preprint"><span class="dot preprint"></span>Preprint</button>
+      <button class="chip filter type-filter" data-type="dataset"><span class="dot dataset"></span>Dataset</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filter publications by year">
+      <button class="chip filter year-filter active" data-year="all">All years</button>
+      {years.map((y) => (
+        <button class="chip filter year-filter" data-year={y}>{y}</button>
+      ))}
     </div>
 
     {years.map((year) => (
@@ -76,24 +82,40 @@ const linkFor = (p: (typeof pubs)[number]['data']) =>
 </Base>
 
 <script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
-  buttons.forEach((btn) => {
+  let activeType = 'all';
+  let activeYear = 'all';
+
+  const apply = () => {
+    document.querySelectorAll<HTMLElement>('.pub').forEach((pub) => {
+      pub.hidden = activeType !== 'all' && pub.dataset.type !== activeType;
+    });
+    document.querySelectorAll<HTMLElement>('.year-block').forEach((block) => {
+      const yearMatch = activeYear === 'all' || block.dataset.year === activeYear;
+      const anyVisible = [...block.querySelectorAll<HTMLElement>('.pub')].some((p) => !p.hidden);
+      block.hidden = !yearMatch || !anyVisible;
+    });
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('.type-filter').forEach((btn) => {
     btn.addEventListener('click', () => {
-      buttons.forEach((b) => b.classList.toggle('active', b === btn));
-      const type = btn.dataset.type;
-      document.querySelectorAll<HTMLElement>('.pub').forEach((pub) => {
-        pub.hidden = type !== 'all' && pub.dataset.type !== type;
-      });
-      document.querySelectorAll<HTMLElement>('.year-block').forEach((block) => {
-        const anyVisible = [...block.querySelectorAll<HTMLElement>('.pub')].some((p) => !p.hidden);
-        block.hidden = !anyVisible;
-      });
+      document.querySelectorAll('.type-filter').forEach((b) => b.classList.toggle('active', b === btn));
+      activeType = btn.dataset.type ?? 'all';
+      apply();
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.year-filter').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.year-filter').forEach((b) => b.classList.toggle('active', b === btn));
+      activeYear = btn.dataset.year ?? 'all';
+      apply();
     });
   });
 </script>
 
 <style>
   .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0.5rem; }
+  .filters + .filters { margin-top: 0.25rem; }
   .filter { cursor: pointer; min-height: 38px; transition: border-color 150ms ease; }
   .filter:hover { border-color: var(--teal); }
   .filter.active { border-color: var(--teal); color: var(--text); background: var(--surface); }
