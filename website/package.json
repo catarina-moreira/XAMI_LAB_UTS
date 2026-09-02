@@ -1,0 +1,14 @@
+{
+  "name": "xami-lab-website",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "type": "module",
+  "dependencies": {
+    "astro": "^7.2.10"
+  }
+}

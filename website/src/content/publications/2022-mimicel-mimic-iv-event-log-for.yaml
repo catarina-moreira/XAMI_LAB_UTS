@@ -1,0 +1,9 @@
+title: "MIMICEL: MIMIC-IV Event Log for Emergency Department"
+authors: "Jia Wei, Zhipeng He, Chun Ouyang, Catarina Moreira"
+venue: "PhysioNet, 2022"
+year: 2022
+type: dataset
+doi: "https://doi.org/10.13026/64aq-jw11"
+code: "https://github.com/ZhipengHe/MIMIC-IV-event-log-extraction-for-ED"
+abstract: "In this work, we extract an event log from the MIMIC-IV-ED dataset by adopting a well-established event log generation methodology, and we name this event log MIMICEL. The data tables in the MIMIC-IV-ED dataset relate to each other based on the existing relational database schema, and each table records the individual activities of patients along their journey in the emergency department (ED). While the data tables in the MIMIC-IV-ED dataset catch snapshots of a patient journey in the ED, the extracted event log MIMICEL aims to capture an end-to-end patient journey process. This will enable us to analyse the existing patient flows, thereby improving the efficiency of an ED process."
+bibtex: "@misc{mimicel, title={MIMICEL: MIMIC-IV Event Log for Emergency Department}, author={Wei, Jia and He, Zhipeng and Ouyang, Chun and Moreira, Catarina}, year = {2022}, doi = {10.13026/64aq-jw11}, note={Version 1.0.0}, publisher = {Physionet} }"

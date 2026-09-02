@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'XAMI Lab — eXplainable Analytics for Machine Intelligence. Supporting human-machine collaboration and co-evolution.' } = Astro.props;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/research/', label: 'Research' },
+  { href: '/people/', label: 'People' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/videos/', label: 'Talks & Videos' },
+  { href: '/tutorials/', label: 'Tutorials' },
+];
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · XAMI Lab</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/assets/XAMI-Lab-Collapsed.png" />
+    <meta property="og:title" content={`${title} · XAMI Lab`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/assets/XAMI_v2.png', Astro.site)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="site-header">
+      <nav class="container nav-inner" aria-label="Main navigation">
+        <a class="brand" href="/">
+          <img src="/assets/XAMI-Lab-Collapsed.png" alt="" width="34" height="32" />
+          <span>XAMI <span class="grad-text">Lab</span></span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+          {nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <img src="/assets/XAMI-Lab-Collapsed.png" alt="XAMI Lab logo" width="42" height="40" />
+          <div>
+            <strong style="font-family:var(--font-heading);color:#eef3f9;">XAMI Lab</strong><br />
+            eXplainable Analytics for Machine Intelligence
+          </div>
+        </div>
+        <div>
+          University of Technology Sydney<br />
+          <a href="mailto:xami.initiaive@gmail.com">xami.initiaive@gmail.com</a>
+        </div>
+        <div>
+          © {new Date().getFullYear()} XAMI Lab
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.getElementById('site-header');
+      const toggle = document.querySelector('.nav-toggle');
+      toggle?.addEventListener('click', () => {
+        const open = header?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(Boolean(open)));
+      });
+    </script>
+
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--surface);
+        color: var(--text);
+        padding: 0.6rem 1rem;
+        z-index: 200;
+      }
+      .skip-link:focus {
+        left: 0.5rem;
+        top: 0.5rem;
+      }
+    </style>
+  </body>
+</html>

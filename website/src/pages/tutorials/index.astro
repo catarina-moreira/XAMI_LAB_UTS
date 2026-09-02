@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const tutorials = (await getCollection('tutorials')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title="Tutorials" description="Tutorials and teaching material from the XAMI Lab.">
+  <div class="container section">
+    <h1>Tutorials</h1>
+    <p class="muted" style="max-width:50rem;">
+      Hands-on guides and teaching material from the lab.
+    </p>
+
+    <ul class="list">
+      {tutorials.map((t) => (
+        <li class="card item">
+          <a href={`/tutorials/${t.id}/`}>
+            <h2>{t.data.title}</h2>
+            {t.data.description && <p class="muted">{t.data.description}</p>}
+            <p class="meta">
+              {t.data.author && <span>{t.data.author} · </span>}
+              <time datetime={t.data.date.toISOString()}>{fmt.format(t.data.date)}</time>
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .list { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.2rem; max-width: 52rem; }
+  .item a { display: block; padding: 1.4rem 1.6rem; color: inherit; }
+  .item a:hover { text-decoration: none; }
+  .item h2 { font-size: 1.2rem; margin-bottom: 0.3rem; color: var(--link); }
+  .item p { margin-bottom: 0.3rem; font-size: 0.95rem; }
+  .meta { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+</style>

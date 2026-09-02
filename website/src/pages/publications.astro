@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const pubs = await getCollection('publications');
+const years = [...new Set(pubs.map((p) => p.data.year))].sort((a, b) => b - a);
+
+const typeLabels: Record<string, string> = {
+  journal: 'Journal',
+  conference: 'Conference',
+  preprint: 'Preprint',
+  dataset: 'Dataset',
+};
+
+const linkFor = (p: (typeof pubs)[number]['data']) =>
+  [
+    { href: p.doi, label: 'Paper' },
+    { href: p.arxiv, label: 'arXiv' },
+    { href: p.code, label: 'Code' },
+    { href: p.demo, label: 'Demo' },
+    { href: p.video, label: 'Video' },
+    { href: p.slides, label: 'Slides' },
+  ].filter((l) => l.href);
+---
+
+<Base title="Publications" description="Publications of the XAMI Lab.">
+  <div class="container section">
+    <h1>Publications</h1>
+
+    <div class="filters" role="group" aria-label="Filter publications by type">
+      <button class="chip filter active" data-type="all">All</button>
+      <button class="chip filter" data-type="journal"><span class="dot journal"></span>Journal</button>
+      <button class="chip filter" data-type="conference"><span class="dot conference"></span>Conference</button>
+      <button class="chip filter" data-type="preprint"><span class="dot preprint"></span>Preprint</button>
+      <button class="chip filter" data-type="dataset"><span class="dot dataset"></span>Dataset</button>
+    </div>
+
+    {years.map((year) => (
+      <section class="year-block" data-year={year}>
+        <h2 class="section-title">{year}</h2>
+        <ul class="pub-list">
+          {pubs
+            .filter((p) => p.data.year === year)
+            .sort((a, b) => a.data.title.localeCompare(b.data.title))
+            .map((p) => (
+              <li class="pub" data-type={p.data.type}>
+                <div class="pub-head">
+                  <span class={`chip type ${p.data.type}`}><span class={`dot ${p.data.type}`}></span>{typeLabels[p.data.type]}</span>
+                </div>
+                <h3 class="pub-title">{p.data.title}</h3>
+                <p class="pub-meta">{p.data.authors}</p>
+                <p class="pub-meta venue">{p.data.venue}</p>
+                <div class="pub-actions">
+                  {linkFor(p.data).map((l) => (
+                    <a class="btn btn-ghost small" href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
+                  ))}
+                  {p.data.abstract && (
+                    <details>
+                      <summary class="btn btn-ghost small">Abstract</summary>
+                      <p class="abstract">{p.data.abstract}</p>
+                    </details>
+                  )}
+                  {p.data.bibtex && (
+                    <details>
+                      <summary class="btn btn-ghost small">BibTeX</summary>
+                      <pre class="bibtex"><code>{p.data.bibtex}</code></pre>
+                    </details>
+                  )}
+                </div>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.toggle('active', b === btn));
+      const type = btn.dataset.type;
+      document.querySelectorAll<HTMLElement>('.pub').forEach((pub) => {
+        pub.hidden = type !== 'all' && pub.dataset.type !== type;
+      });
+      document.querySelectorAll<HTMLElement>('.year-block').forEach((block) => {
+        const anyVisible = [...block.querySelectorAll<HTMLElement>('.pub')].some((p) => !p.hidden);
+        block.hidden = !anyVisible;
+      });
+    });
+  });
+</script>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0.5rem; }
+  .filter { cursor: pointer; min-height: 38px; transition: border-color 150ms ease; }
+  .filter:hover { border-color: var(--teal); }
+  .filter.active { border-color: var(--teal); color: var(--text); background: var(--surface); }
+
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .dot.journal { background: #b03252; }
+  .dot.conference { background: #2e90fa; }
+  .dot.preprint { background: #e3812b; }
+  .dot.dataset { background: #23a97e; }
+
+  .year-block { margin-top: 2.5rem; }
+  .pub-list { list-style: none; margin: 0; padding: 0; }
+  .pub {
+    padding: 1.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-head { margin-bottom: 0.3rem; }
+  .chip.type { font-size: 0.72rem; }
+  .pub-title { font-size: 1.08rem; margin-bottom: 0.2rem; }
+  .pub-meta { margin: 0; font-size: 0.92rem; color: var(--text-muted); }
+  .venue { font-style: italic; }
+  .pub-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.7rem; align-items: flex-start; }
+  .btn.small { padding: 0.3rem 0.85rem; min-height: 36px; font-size: 0.85rem; font-weight: 500; }
+  details { max-width: 100%; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  details[open] summary { border-color: var(--teal); }
+  .abstract, .bibtex {
+    margin: 0.7rem 0 0;
+    padding: 1rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+  }
+  .bibtex { overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+</style>

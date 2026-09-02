@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const tutorials = await getCollection('tutorials');
+  return tutorials.map((t) => ({ params: { slug: t.id }, props: { tutorial: t } }));
+}
+
+const { tutorial } = Astro.props;
+const { Content } = await render(tutorial);
+const fmt = new Intl.DateTimeFormat('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={tutorial.data.title} description={tutorial.data.description}>
+  <div class="container section">
+    <p><a href="/tutorials/">← All tutorials</a></p>
+    <h1>{tutorial.data.title}</h1>
+    <p class="muted">
+      {tutorial.data.author && <span>{tutorial.data.author} · </span>}
+      <time datetime={tutorial.data.date.toISOString()}>{fmt.format(tutorial.data.date)}</time>
+    </p>
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+</Base>
+
+<style>
+  .prose { max-width: 48rem; }
+  .prose :global(pre) {
+    padding: 1rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+  .prose :global(code) { font-size: 0.92em; }
+  .prose :global(img) { border-radius: var(--radius); border: 1px solid var(--border); }
+  .prose :global(h2) { margin-top: 2rem; }
+</style>

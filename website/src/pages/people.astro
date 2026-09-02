@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import MemberCard from '../components/MemberCard.astro';
+
+const people = await getCollection('people', ({ data }) => !data.alumni);
+const byOrder = (a: any, b: any) => a.data.order - b.data.order;
+
+const groups = [
+  { key: 'leadership', title: 'Lab Leadership' },
+  { key: 'researchers', title: 'Researchers' },
+  { key: 'collaborators', title: 'Collaborators' },
+  { key: 'external', title: 'External Researchers' },
+] as const;
+---
+
+<Base title="People" description="Meet the team behind the XAMI Lab.">
+  <div class="container section">
+    <h1>People</h1>
+    <p class="muted" style="max-width:50rem;">
+      The XAMI Lab brings together researchers across explainable AI, process analytics,
+      causal inference and human-centred computing.
+    </p>
+
+    {groups.map((g) => {
+      const members = people.filter((p) => p.data.group === g.key).sort(byOrder);
+      return members.length > 0 ? (
+        <section class="group">
+          <h2 class="section-title">{g.title}</h2>
+          <div class="grid">
+            {members.map((m) => <MemberCard {...m.data} />)}
+          </div>
+        </section>
+      ) : null;
+    })}
+  </div>
+</Base>
+
+<style>
+  .group { margin-top: 3rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

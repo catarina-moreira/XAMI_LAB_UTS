@@ -1,0 +1,8 @@
+title: "Towards Data-Driven Business Process Redesign Through the Lens of Process Mining Case Studies"
+authors: "Zeping Wang, Rehan Syed, Chun Ouyang"
+venue: "In Proceedings of 2023 International Workshop on Data-Driven Business Process Optimization (BPO), 2023"
+year: 2023
+type: conference
+doi: "https://10wvvw.easychair.org/publications/preprint_download/cVwX"
+abstract: "Process mining is widely used for business process analysis, but rarely informs Business Process Redesign (BPR) activities. We review process mining literature and BPR framework to create thematic maps of state-of-the-art process mining analyses, techniques, outcomes and BPR best practices. We collect 156 case studies where process mining is applied and use them to validate the proposed themes. We reveal connections between the themes to explore the synergy between process mining and process redesign. Our work contributes to the development of an approach for BPR practitioners to systematically leverage the process mining capabilities, providing a solid starting point for data-driven BPR."
+bibtex: "@inproceedings{wang2023towards, title={Towards Data-Driven Business Process Redesign Through the Lens of Process Mining Case Studies}, author={Wang, Zeping and Syed, Rehan and Ouyang, Chun}, booktitle={International Workshop on Data-Driven Business Process Optimization}, year={2023}}"

@@ -1,0 +1,8 @@
+title: "Generating Purpose-Driven Explanations: The Case of Process Predictive Model Inspection"
+authors: "Bemali Wickramanayake, Chun Ouyang, Catarina Moreira, Yue Xu"
+venue: "In Proceedings of the 34th International Conference on Advanced Information Systems Engineering (CAiSE) Forum, 2022"
+year: 2022
+type: conference
+doi: "https://doi.org/10.1007/978-3-031-07481-3_14"
+demo: "https://tinyurl.com/Visualexplanation4inspection"
+abstract: "Explainable AI is an emerging branch of data science that focuses on demystifying the complex computation logic of machine learning with an aim to improve the transparency, validity and trust in automated decisions. While existing research focuses on building methods and techniques to explain 'black-box' models, much attention has not been paid to generating model explanations. Effective model explanations are often driven by the purpose of explanation in a given problem context. In this paper, we propose a framework to support generating model explanations for the purpose of model inspection in the context of predictive process analytics. We build a visual explanation platform as an implementation of the proposed framework for inspecting and analysing a process predictive model, and demonstrate the applicability of the framework using a real-life case study on a loan application process."

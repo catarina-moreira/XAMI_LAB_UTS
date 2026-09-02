@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  youtubeId: string;
+  start?: number;
+  speakers?: string[];
+}
+
+const { title, description, youtubeId, start, speakers = [] } = Astro.props;
+const src = `https://www.youtube-nocookie.com/embed/${youtubeId}${start ? `?start=${start}` : ''}`;
+---
+
+<article class="card video">
+  <div class="frame">
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="body">
+    <h3>{title}</h3>
+    {description && <p class="muted">{description}</p>}
+    {speakers.length > 0 && <p class="speakers">{speakers.join(' · ')}</p>}
+  </div>
+</article>
+
+<style>
+  .frame { aspect-ratio: 16 / 9; background: var(--navy); }
+  iframe { width: 100%; height: 100%; border: 0; }
+  .body { padding: 1rem 1.1rem 1.2rem; }
+  h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+  p { margin-bottom: 0.25rem; font-size: 0.92rem; }
+  .speakers { font-weight: 600; font-size: 0.85rem; color: var(--teal); margin: 0; }
+</style>

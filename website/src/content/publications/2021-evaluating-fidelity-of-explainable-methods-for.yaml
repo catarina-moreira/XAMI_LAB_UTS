@@ -1,0 +1,9 @@
+title: "Evaluating Fidelity of Explainable Methods for Predictive Process Analytics"
+authors: "Mythreyi Velmurugan, Chun Ouyang, Catarina Moreira and Renuka Sindhgatta"
+venue: "In Proceedings of the 33rd International Conference on Advanced Information Systems Engineering (CAISE) Forum, Melbourne, Australia, 2021"
+year: 2021
+type: conference
+doi: "https://doi.org/10.1007/978-3-030-79108-7_8"
+code: "https://github.com/Mythreyi-V/PPA_Evaluation"
+abstract: "Predictive process analytics focuses on predicting the future states of running instances of a business process. While advanced machine learning techniques have been used to increase the accuracy of predictions, the resulting predictive models lack transparency. Explainable machine learning methods can be used to interpret black-box models. However, it is unclear how fit for purpose these methods are in explaining process predictive models. In this paper, we aim to investigate the capabilities of two explainable methods, LIME and SHAP, in reproducing the decision-making processes of black-box process predictive models. We focus on fidelity metrics and propose a method to evaluate the faithfulness of LIME and SHAP when explaining process predictive models built on a Gradient Boosting Machine classifier. We conduct the evaluation using three real-life event logs and analyze the fidelity evaluation results to derive insights. The research contributes to evaluating the trustworthiness of explainable methods for predictive process analytics as a fundamental and key step towards human user-oriented evaluation."
+bibtex: "@inproceedings{velmurugan2021evaluating, title={Evaluating fidelity of explainable methods for predictive process analytics}, author={Velmurugan, Mythreyi and Ouyang, Chun and Moreira, Catarina and Sindhgatta, Renuka}, booktitle={International Conference on Advanced Information Systems Engineering}, pages={64--72}, year={2021}, organization={Springer} }"

@@ -1,0 +1,8 @@
+title: "Improving X-ray Diagnostics through Eye-Tracking and XR"
+authors: "Catarina Moreira, Isabel Blanco Nobre, Sandra Costa Sousa, Joao Madeiras Pereira, Joaquim Jorge"
+venue: "In Proceedings of 2022 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 450-453, 2022"
+year: 2022
+type: conference
+doi: "https://www.doi.org/10.1109/VRW55335.2022.00099"
+abstract: "There is a growing need to assist radiologists in performing X-ray readings and diagnoses fast, comfortably, and effectively. As radiologists strive to maximize productivity, it is essential to consider the impact of reading rooms in interpreting complex examinations and ensure that higher volume and reporting speeds do not compromise patient outcomes. Virtual Reality (VR) is a disruptive technology for clinical practice in assessing X-ray images. We argue that conjugating eye-tracking with VR devices and Machine Learning may overcome obstacles posed by inadequate ergonomic postures and poor room conditions that often cause erroneous diagnostics when professionals examine digital images."
+bibtex: "@inproceedings{moreira2022improving, title={Improving X-ray Diagnostics through Eye-Tracking and XR}, author={Moreira, Catarina and Nobre, Isabel Blanco and Sousa, Sandra Costa and Pereira, Jo{~a}o Madeiras and Jorge, Joaquim}, booktitle={2022 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)}, pages={450--453}, year={2022}, organization={IEEE} }"

@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import VideoCard from '../components/VideoCard.astro';
+
+const videos = await getCollection('videos');
+const byOrder = (a: any, b: any) => a.data.order - b.data.order;
+
+const sections = [
+  { key: 'getting-started', title: 'Getting started' },
+  { key: 'conferences', title: 'XAMI @ conferences' },
+  { key: 'training', title: 'Skills training' },
+] as const;
+---
+
+<Base title="Talks & Videos" description="Talks, conference presentations and training videos from the XAMI Lab.">
+  <div class="container section">
+    <h1>Talks &amp; Videos</h1>
+    <p class="muted" style="max-width:50rem;">
+      Recorded talks, conference presentations and skills-training sessions from the lab.
+    </p>
+
+    {sections.map((s) => {
+      const items = videos.filter((v) => v.data.section === s.key).sort(byOrder);
+      return items.length > 0 ? (
+        <section class="group">
+          <h2 class="section-title">{s.title}</h2>
+          <div class="grid">
+            {items.map((v) => <VideoCard {...v.data} />)}
+          </div>
+        </section>
+      ) : null;
+    })}
+  </div>
+</Base>
+
+<style>
+  .group { margin-top: 3rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  @media (max-width: 400px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

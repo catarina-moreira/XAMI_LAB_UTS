@@ -1,0 +1,9 @@
+title: "Evaluating Stability of Post-hoc Explanations for Business Process Predictions"
+authors: "Mythreyi Velmurugan, Chun Ouyang, Catarina Moreira, Renuka Sindhgatta"
+venue: "In Proceedings of the 19th International Conference on Service-Oriented Computing, 49-64, 2021"
+year: 2021
+type: conference
+doi: "https://doi.org/10.1007/978-3-030-91431-8_4"
+code: "https://github.com/Mythreyi-V/PPA_Stability"
+abstract: "Predictive process analytics uses advanced machine learning techniques to accurately predict future states of running business processes. Given the complexity of these predictive models, explainable AI techniques are also required to enable informed decision-making. However, few studies evaluate the quality of explanations provided by existing methods to explain business process predictions. In this paper, we attempt to evaluate the consistency of explanations produced for process predictions by two popular explainable methods. We propose that methods and metrics to assess feature selection algorithms can be used to evaluate explanation stability. We use these metrics to assess explanations produced by LIME and SHAP. Our findings indicate that explanation stability may depend on dataset characteristics, feature construction methods and predictive model characteristics. In addition, we also find that, though stable explanations are needed for informed decision-making, unexpected behaviour in explanation stability can act as a diagnostic tool to determine model quality."
+bibtex: "@inproceedings{velmurugan2021evaluating, title={Evaluating stability of post-hoc explanations for business process predictions}, author={Velmurugan, Mythreyi and Ouyang, Chun and Moreira, Catarina and Sindhgatta, Renuka}, booktitle={International Conference on Service-Oriented Computing}, pages={49--64}, year={2021}, organization={Springer} }"
