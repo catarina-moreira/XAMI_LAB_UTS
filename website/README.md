@@ -85,4 +85,4 @@ visitor's system preference). Design tokens live in
 ## 📬 Contact
 
 **XAMI Lab** · University of Technology Sydney
-📧 [xami.initiaive@gmail.com](mailto:xami.initiaive@gmail.com)
+📧 [xamilab.uts@gmail.com](mailto:xamilab.uts@gmail.com)
