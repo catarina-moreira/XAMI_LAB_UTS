@@ -9,8 +9,8 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <div class="container section">
     <h1>Research</h1>
     <p class="muted" style="max-width:50rem;">
-      Our research is organised into four themes, all working towards machine intelligence
-      that people can understand, question and trust.
+      Our research is organised into {projects.length} themes, all working towards machine
+      intelligence that people can understand, question and trust.
     </p>
     <div class="grid">
       {projects.map((p) => (
