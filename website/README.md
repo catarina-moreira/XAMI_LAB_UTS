@@ -7,10 +7,10 @@
 **Supporting human-machine collaboration and co-evolution**
 
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-BC52EE?logo=astro&logoColor=white)](https://astro.build)
-[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-222?logo=github)](https://xami-lab.github.io)
+[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-222?logo=github)](https://xami-lab-uts.github.io)
 [![Content: Markdown & YAML](https://img.shields.io/badge/Content-Markdown%20%26%20YAML-2bd9a1)](#-adding-content)
 
-🌐 **[xami-lab.github.io](https://xami-lab.github.io)**
+🌐 **[xami-lab-uts.github.io](https://xami-lab-uts.github.io)**
 
 </div>
 
@@ -47,7 +47,7 @@ text file — add or edit files directly on GitHub and the site redeploys
 automatically in ~2 minutes.
 
 The full guide (with copy-paste templates) is published on the site itself:
-**[Adding content to this website](https://xami-lab.github.io/tutorials/adding-content-to-this-website/)**.
+**[Adding content to this website](https://xami-lab-uts.github.io/tutorials/adding-content-to-this-website/)**.
 
 Quick example — a new publication is just `src/content/publications/2026-my-paper.yaml`:
 

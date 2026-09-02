@@ -6,7 +6,7 @@ date: 2026-09-02
 ---
 
 Everything on this website lives in plain text files inside the
-[`xami-lab.github.io`](https://github.com/XAMI-LAB/xami-lab.github.io) repository.
+[`xami-lab-uts.github.io`](https://github.com/XAMI-LAB-UTS/xami-lab-uts.github.io) repository.
 When a file is added or edited on the `main` branch, the site rebuilds and
 redeploys automatically within a couple of minutes. You can do everything from
 the GitHub web interface — no local setup needed.
@@ -73,8 +73,8 @@ images and links all work.
 ## Previewing locally (optional)
 
 ```bash
-git clone https://github.com/XAMI-LAB/xami-lab.github.io
-cd xami-lab.github.io
+git clone https://github.com/XAMI-LAB-UTS/xami-lab-uts.github.io
+cd xami-lab-uts.github.io
 npm install
 npm run dev
 ```
