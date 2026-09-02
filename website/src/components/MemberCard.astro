@@ -27,7 +27,9 @@ const links = [
   {photo ? (
     <img class="portrait" src={photo} alt={`Portrait of ${name}`} loading="lazy" width="320" height="320" />
   ) : (
-    <div class="portrait placeholder" aria-hidden="true">{name.replace(/[^A-Za-z ]/g, '').trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join('')}</div>
+    <div class="portrait placeholder" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="45%" height="45%"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2c0-2.76-3.58-5-8-5Z" /></svg>
+    </div>
   )}
   <div class="body">
     <h3>{name}</h3>
