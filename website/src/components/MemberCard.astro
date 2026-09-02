@@ -8,14 +8,16 @@ interface Props {
   email?: string;
   linkedin?: string;
   homepage?: string;
+  uts?: string;
   github?: string;
   scholar?: string;
 }
 
-const { name, role, school, university, photo, email, linkedin, homepage, github, scholar } = Astro.props;
+const { name, role, school, university, photo, email, linkedin, homepage, uts, github, scholar } = Astro.props;
 
 const links = [
   { href: homepage, label: `${name}'s homepage`, icon: 'home' },
+  { href: uts, label: `${name}'s UTS profile`, icon: 'uts' },
   { href: scholar, label: `${name} on Google Scholar`, icon: 'scholar' },
   { href: github, label: `${name} on GitHub`, icon: 'github' },
   { href: linkedin, label: `${name} on LinkedIn`, icon: 'linkedin' },
@@ -44,6 +46,9 @@ const links = [
             <a href={l.href} target="_blank" rel="noreferrer" aria-label={l.label} title={l.label}>
               {l.icon === 'home' && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V21h5v-6h4v6h5V9.5" /></svg>
+              )}
+              {l.icon === 'uts' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18" /><path d="M5 21V8l7-5 7 5v13" /><path d="M9 21v-4h6v4" /><path d="M9 12h.01M15 12h.01M12 12h.01" /></svg>
               )}
               {l.icon === 'scholar' && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 10 6-10 6L2 9Z" /><path d="M6 11.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5" /></svg>

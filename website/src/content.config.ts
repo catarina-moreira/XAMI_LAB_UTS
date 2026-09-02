@@ -15,6 +15,7 @@ const people = defineCollection({
     email: z.string().optional(),
     linkedin: z.string().optional(),
     homepage: z.string().optional(),
+    uts: z.string().optional(),
     github: z.string().optional(),
     scholar: z.string().optional(),
     order: z.number().default(99),
