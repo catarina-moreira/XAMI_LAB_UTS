@@ -2,7 +2,7 @@
 title: Deepfakes & Media Authenticity
 summary: Detecting AI-generated and manipulated media, and helping people understand why content is (or is not) authentic.
 card: /assets/project/deepfakes-img.png
-order: 5
+order: 4
 ---
 
 Generative AI can now produce images, video, audio and text that are increasingly
