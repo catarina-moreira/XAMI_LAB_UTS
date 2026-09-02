@@ -4,5 +4,5 @@ group: "phd"
 role: "PhD Student"
 school: "Data Science Institute"
 university: "University of Technology Sydney"
-order: 2
+order: 3
 ---

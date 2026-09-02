@@ -1,8 +1,8 @@
 ---
 name: "Member Name"
-group: "researchers"
-role: "MPhil Student"
+group: "masters"
+role: "Master Student"
 school: "Data Science Institute"
 university: "University of Technology Sydney"
-order: 4
+order: 1
 ---

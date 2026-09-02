@@ -18,7 +18,7 @@ Create a file `src/content/people/your-name.md`:
 ```markdown
 ---
 name: "Your Name"
-group: researchers        # leadership | researchers | collaborators | external
+group: phd                # leadership | phd | masters | collaborators
 role: "PhD Student"
 school: "Data Science Institute"
 university: "University of Technology Sydney"
